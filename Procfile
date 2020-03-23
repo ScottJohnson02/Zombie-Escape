@@ -1,1 +1,1 @@
-web: gunicorn zombieEscape:app
+web: gunicorn "zombieEscape:create_app()"
