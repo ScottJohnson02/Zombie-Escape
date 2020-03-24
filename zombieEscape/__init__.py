@@ -24,4 +24,7 @@ def create_app(test_config=None):
     @app.route('/hello')
     def hello():
         return 'Hello, world!'
+
+    from . import engine
+    app.register_blueprint(engine.bp)
     return app
