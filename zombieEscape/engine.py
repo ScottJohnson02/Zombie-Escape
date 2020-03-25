@@ -1,4 +1,5 @@
 import functools
+from zombieEscape import map
 
 from flask import (
     Blueprint, flash, g, redirect, render_template, request, session, url_for
@@ -30,5 +31,8 @@ def start():
 
 @bp.route('/start', methods=('GET', 'POST'))
 def firstRoom():
+    game_map = map.Map()
+    game_map.create()
+    print(game_map.scenes)
     print(session['name'])
     return render_template('rooms/game.html')

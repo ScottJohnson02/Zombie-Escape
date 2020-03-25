@@ -1,5 +1,5 @@
 
-1. User can choose their name and registers**
+1. User can choose their name and registers ** done
 2. User sees the story text **
 3. User engages in combat with zombies ** ***
 4. Randomly generated map *
