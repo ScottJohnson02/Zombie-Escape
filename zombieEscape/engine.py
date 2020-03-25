@@ -29,10 +29,12 @@ def start():
     return render_template('rooms/index.html')
 
 
-@bp.route('/start', methods=('GET', 'POST'))
+@bp.route('/game', methods=('GET', 'POST'))
 def firstRoom():
     game_map = map.Map()
     game_map.create()
-    print(game_map.scenes)
+    session['map'] = game_map.names
+    session['current'] = game_map.scenes[0].enter()
+    print(game_map.scenes[0].enter())
     print(session['name'])
     return render_template('rooms/game.html')

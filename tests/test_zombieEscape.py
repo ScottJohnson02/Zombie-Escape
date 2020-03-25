@@ -47,7 +47,7 @@ def test_login(client, name, location):
         '/',
         data={'name': name}
     )
-    assert response.headers['Location'] == 'http://localhost/start'
+    assert response.headers['Location'] == 'http://localhost/game'
 
     with client:
         client.get('/start')
