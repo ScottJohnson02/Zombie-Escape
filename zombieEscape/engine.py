@@ -22,17 +22,14 @@ def start():
 
         if error is None:
             session.clear()
+            # clear session if the player failed a game before
             session['name'] = name
-            print(game_map.names)
-            print(game_map.scenes)
-            print(game_map.newmap)
+            # saves the input as the username
             game_map.create()
-            print(game_map.names)
-            print(game_map.scenes)
-            print(game_map.newmap)
+            # creates the map for the game
             session['map'] = game_map.names
             session['current'] = game_map.newmap[0].enter()
-            print(game_map.newmap[0].enter())
+            # saves the current map and the current scene
             return redirect(url_for('rooms.firstRoom'))
 
         flash(error)
@@ -52,16 +49,19 @@ def firstRoom():
 
         if error is None:
             playerChoice = game_map.newmap[0].choice(command)
-            print(playerChoice)
+            # returns the value next or die
             if playerChoice == 'die':
+                # clear the player session and then shows the death message
                 session.clear()
                 session['message'] = game_map.newmap[0].message
                 return render_template('rooms/death.html')
             elif playerChoice == 'next':
+                # moves the player to the next scene and then display the message
                 session['command'] = command
                 session['message'] = game_map.newmap[0].message
                 game_map.newmap.pop(0)
                 if len(game_map.newmap) == 0:
+                    # checks if there are any more rooms left
                     return render_template('rooms/win.html')
                 session['current'] = game_map.newmap[0].enter()
 

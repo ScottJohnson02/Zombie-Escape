@@ -1,18 +1,22 @@
 class Scene(object):
     def help(self):
+        # brings the user to a help menu
         return "Here is all the commands you can enter in the field "
 
 
 class Apartment(Scene):
     def __init__(self):
+        # message is the text that apperas after beating or losing a room
         self.message = ' '
         self.name = 'Apartment'
 
     def enter(self):
+        # text the user sees when entering a new room
         return """You enter an old abandoned appartment where it looks as if there was a fire. You suddenly encounter a walker but it is melted into the carpet
     you have a choice to make: 1. kill the walker or 2. dont kill the walker """
 
     def choice(self, word):
+        # takes the user input and then returns a value that the game engine takes and then either moves to next scene or kill the player
         if word == 'die':
             return 'die'
         elif word == '1':
