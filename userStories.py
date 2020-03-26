@@ -1,8 +1,8 @@
 
 1. User can choose their name and registers ** done
-2. User sees the story text **
+2. User sees the story text ** done
 3. User engages in combat with zombies ** ***
-4. Randomly generated map *
+4. Randomly generated map * done
 5. User goes area to area after clearing it out ** *
 6. User can view current stats *
 7. User dies when health is low **

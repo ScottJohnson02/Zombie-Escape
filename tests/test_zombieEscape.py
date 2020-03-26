@@ -2,6 +2,7 @@ from zombieEscape import create_app
 import zombieEscape
 import pytest
 from flask import g, session
+from zombieEscape import map
 
 
 def test_import():
@@ -52,3 +53,11 @@ def test_login(client, name, location):
     with client:
         client.get('/start')
         assert session['name'] == name
+
+
+def test_map_random():
+    test = map.Map()
+    test.create()
+    test2 = map.Map()
+    test2.create()
+    assert test.scenes != test2.scenes

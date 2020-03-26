@@ -10,6 +10,16 @@ class Apartment(Scene):
     def enter(self):
         return "welcome to the apartment"
 
+    def choice(self, word):
+        if word == 'die':
+            return 'die'
+        elif word == 'next':
+            return 'next'
+        elif word == 'loot':
+            return 'loot'
+        else:
+            return 'error'
+
 
 class Thaddeus(Scene):
     def __init__(self):
@@ -17,6 +27,16 @@ class Thaddeus(Scene):
 
     def enter(self):
         return "welcome to Thaddeus Stevens"
+
+    def choice(self, word):
+        if word == 'die':
+            return 'die'
+        elif word == 'next':
+            return 'next'
+        elif word == 'loot':
+            return 'loot'
+        else:
+            return 'error'
 
 
 class CarDealership(Scene):
@@ -26,6 +46,16 @@ class CarDealership(Scene):
     def enter(self):
         return "welcome to the car dealership"
 
+    def choice(self, word):
+        if word == 'die':
+            return 'die'
+        elif word == 'next':
+            return 'next'
+        elif word == 'loot':
+            return 'loot'
+        else:
+            return 'error'
+
 
 class Market(Scene):
     def __init__(self):
@@ -33,3 +63,13 @@ class Market(Scene):
 
     def enter(self):
         return "welcome to the Market"
+
+    def choice(self, word):
+        if word.upper() == 'DIE':
+            return 'die'
+        elif word.upper() == 'NEXT':
+            return 'next'
+        elif word.upper() == 'LOOT':
+            return 'loot'
+        else:
+            return 'error'

@@ -23,7 +23,9 @@
   "inventory" at anytime to view your current inventory and equip items.
   You currently have a few items in your inventory when you are done equipping
   gear type "start" to begin your adventure through Lancaster City</p>
-
+{% for message in get_flashed_messages() %}
+<div class="flash">{{ message }}</div>
+{% endfor %}
 <form class="" action="" method="post">
   <label for="username">Enter your name:</label>
   <input type="text" name="name" id="name" required>

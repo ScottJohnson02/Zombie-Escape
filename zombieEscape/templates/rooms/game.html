@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% block header %}
 <h1>{% block title %}Welcome{% endblock %}</h1>
 {% endblock %}
@@ -6,6 +7,13 @@
 <p>Welcome to Lancaster <span>{{session['name']}}</span></p>
 <p>map: {{session['map']}}</p>
 <p> {{session['current']}}</p>
-
+{% for message in get_flashed_messages() %}
+<div class="flash">{{ message }}</div>
+{% endfor %}
+<form class="" action="" method="post">
+  <label for="command">Enter a command:</label>
+  <input type="text" name="command" id="command" required>
+  <input type="submit" value="Send">
+</form>
 
 {% endblock %}
