@@ -21,6 +21,7 @@ def start():
             error = 'Username is required.'
 
         if error is None:
+            session.clear()
             session['name'] = name
             print(game_map.names)
             print(game_map.scenes)
@@ -50,12 +51,11 @@ def firstRoom():
             error = 'command is required.'
 
         if error is None:
-            playerChoice = game_map.scenes[0].choice(command)
-
-            print(game_map.scenes[0].choice(command))
-
+            playerChoice = game_map.newmap[0].choice(command)
+            print(playerChoice)
             if playerChoice == 'die':
                 session.clear()
+                session['message'] = game_map.newmap[0].message
                 return render_template('rooms/death.html')
             elif playerChoice == 'next':
                 session['command'] = command
@@ -63,6 +63,7 @@ def firstRoom():
                 if len(game_map.newmap) == 0:
                     return render_template('rooms/win.html')
                 session['current'] = game_map.newmap[0].enter()
+                session['message'] = game_map.newmap[0].message
                 return redirect(url_for('rooms.firstRoom'))
             elif playerChoice == 'help':
                 return render_template('rooms/help.html')

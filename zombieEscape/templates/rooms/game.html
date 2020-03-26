@@ -6,6 +6,7 @@
 {% block content %}
 <p>Welcome to Lancaster <span>{{session['name']}}</span></p>
 <p>map: {{session['map']}}</p>
+<p>{{session['message']}}</p>
 <p> {{session['current']}}</p>
 {% for message in get_flashed_messages() %}
 <div class="flash">{{ message }}</div>
