@@ -59,11 +59,12 @@ def firstRoom():
                 return render_template('rooms/death.html')
             elif playerChoice == 'next':
                 session['command'] = command
+                session['message'] = game_map.newmap[0].message
                 game_map.newmap.pop(0)
                 if len(game_map.newmap) == 0:
                     return render_template('rooms/win.html')
                 session['current'] = game_map.newmap[0].enter()
-                session['message'] = game_map.newmap[0].message
+
                 return redirect(url_for('rooms.firstRoom'))
             elif playerChoice == 'help':
                 return render_template('rooms/help.html')
