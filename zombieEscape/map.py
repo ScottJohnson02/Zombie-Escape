@@ -2,14 +2,14 @@ from zombieEscape import scenes
 import random
 
 
-game_length = 3
+game_length = 4
 
 
 class Map(object):
     def __init__(self):
         # calls the scenes from scenes\.py
         self.scenes = [scenes.Apartment(), scenes.CarDealership(),
-                       scenes.Thaddeus(), scenes.Market()]
+                       scenes.Thaddeus(), scenes.Market(), scenes.GroceryStore()]
         self.newmap = []
         self.names = " "
 

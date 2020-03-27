@@ -102,3 +102,28 @@ class Market(Scene):
             return 'loot'
         else:
             return 'error'
+
+
+class GroceryStore(Scene):
+    def __init__(self):
+        self.name = 'Grocery Store'
+        self.message = ' '
+
+    def enter(self):
+        return """You are walking along the street and you come across a family owned grocery store. You hear a car coming so you run to go hide in the building, but then you hear the car stop right in front of the store
+     they shout out "COME HERE FELLER'" as they blast their guns in the air. Your heart starts racing as you begin thinking about what to do next. You run behind one of the counters towards the front of the store. You hear them talk about splitting up to track you down.
+     You know you could take them all in a 1v1 style but you don't know about a 1 v 3. Suddenly you hear footsteps slowly coming closer to you. He walks past you but you decide to sneak up behind him and subdue him with your trusty hunting knife. He goes down silently and
+     you loot him and take his gun. You see one of the goons look at you and he reaches for his gun as he shreaks "THAT SUN OF A BITCH KILLED MICHA BLAST HIM" as he is in the middle of his sentence you unload a clip into him and he falls to the ground. There is only 1 left and he is begging for
+     his life. You have a choice to make: 1. Kill the man or 2. Don't kill the man and spare him """
+
+    def choice(self, word):
+        if word.upper() == '1':
+            self.message = "You don't wanna take any chances and you shoot him between the eyes making it painless but effective and you leave the store with their supplies and their truck"
+            return 'next'
+        elif word.upper() == '2':
+            self.message = 'You to spare him his life since you would feel to guilty killing someone who doesn\'t want a fight. However he pulled a fast one on you and takes his small pistol from his pocket and SHOOTS YOU IN THE STOMACH'
+            return 'die'
+        elif word.upper() == 'LOOT':
+            return 'loot'
+        else:
+            return 'error'
